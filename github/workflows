@@ -1,1 +1,21 @@
+name: Run VPS-like environment
+
+on: [push]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+    - name: Run a command
+      run: |
+        echo "Starting your VPS-like environment"
+        # Add your commands here
+        sudo apt-get update
+        sudo apt-get install -y nginx
+        sudo service nginx start
+        echo "Nginx started"
 
